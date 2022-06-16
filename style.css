@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 250px;
+  height: 350px;
+}
+
+.row1 {
+  display: flex;
+}
+
+.row2 {
+  display: flex;
+}
+
+.row3 {
+  display: flex;
+}
+
+.row4 {
+  display: flex;
+}
+
+.row5 {
+  display: flex;
+}
