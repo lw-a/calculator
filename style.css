@@ -1,28 +1,78 @@
+body {
+  background-color: lightgray;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 
-  width: 250px;
-  height: 350px;
+  width: 400px;
+  height: 550px;
+  padding: 10px;
+
+  background-color: grey;
+  border-style: solid;
+}
+
+#display {  
+  padding: 5px;
+  margin: 5px;
+  width: 350px;
+  height: 120px;
+
+  text-align: right;
+
+  background-color: lightgrey;
+  border-style: solid;
+}
+
+.displayMain {
+  font-size: 45px;
 }
 
 .row1 {
   display: flex;
+  gap: 10px;
+}
+
+.row1 button {
+  width: 170px;
+  height: 65px;
+}
+
+button {
+  border-style: solid;
+  border-color: black;
+}
+
+.operand {
+  width: 80px;
+  height: 70px;
+}
+
+.operator {
+  width: 80px;
+  height: 70px;
 }
 
 .row2 {
   display: flex;
+  gap: 10px;
 }
 
 .row3 {
   display: flex;
+  gap: 10px;
 }
 
 .row4 {
   display: flex;
+  gap: 10px;
 }
 
 .row5 {
   display: flex;
+  gap: 10px;
 }
