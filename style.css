@@ -28,6 +28,10 @@ body {
   border-style: solid;
 }
 
+.displayUpper {
+  height: 70px;
+}
+
 .displayMain {
   font-size: 45px;
 }

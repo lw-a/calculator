@@ -39,6 +39,7 @@ let firstValue = "";
 let result = "";
 let operator = "";
 let displayMain = document.querySelector(".displayMain");
+let displayUpper = document.querySelector(".displayUpper");
 
 const operands = document.querySelectorAll(".operand");
 
@@ -58,6 +59,7 @@ operators.forEach((button) => {
       firstValue = displayValue;
       displayValue = "";
       operator = button.textContent;
+      displayUpper.innerText = `${firstValue} ${operator}`;
     }
   })
 })
@@ -65,12 +67,11 @@ operators.forEach((button) => {
 const equals = document.getElementById("equalsBtn")
 
 equals.addEventListener("click", () => {
-  console.log(operator);
-  console.log(firstValue);
-  console.log(displayValue);
+  displayUpper.innerText = `${firstValue} ${operator} ${displayValue} =`;
   displayValue = operate(operator, parseInt(firstValue), parseInt(displayValue));
   displayMain.innerText = displayValue;
-})
+
+});
 
 const clear = document.getElementById("clearBtn");
 
