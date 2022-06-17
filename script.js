@@ -11,11 +11,10 @@ function multiplication(x, y) {
 }
 
 function division(x, y) {
-return x / y;
+  return x / y;
 }
 
 function operate(operator, x, y) {
-
   switch (operator) {
     case "+":
       return addition(x, y);
@@ -31,7 +30,29 @@ function operate(operator, x, y) {
 
     case "÷":
       return division(x, y);
-      break;        
+      break;
   }
-
 }
+
+let firstValue = "";
+let secondValue = "";
+let result = "";
+let displayMain = document.querySelector(".displayMain");
+
+const operands = document.querySelectorAll(".operand");
+
+operands.forEach((button) => {
+  button.addEventListener("click", () => {
+    firstValue += button.textContent;
+    displayMain.innerText = firstValue;
+  });
+});
+
+const clear = document.getElementById("clearBtn");
+
+clear.addEventListener("click", () => {
+  firstValue = "";
+  secondValue = "";
+  result = "";
+  displayMain.innerText = "0";
+});
