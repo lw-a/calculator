@@ -29,7 +29,9 @@ body {
 }
 
 .displayUpper {
-  height: 70px;
+  padding: 10px;
+  height: 30px;
+  font-size: 20px;
 }
 
 .displayMain {
@@ -52,16 +54,6 @@ button {
   width: 80px;
   height: 70px;
 }
-
-/* .operand {
-  width: 80px;
-  height: 70px;
-}
-
-.operator {
-  width: 80px;
-  height: 70px;
-} */
 
 .row2 {
   display: flex;

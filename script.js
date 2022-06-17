@@ -67,9 +67,12 @@ operators.forEach((button) => {
 const equals = document.getElementById("equalsBtn")
 
 equals.addEventListener("click", () => {
-  displayUpper.innerText = `${firstValue} ${operator} ${displayValue} =`;
-  displayValue = operate(operator, parseInt(firstValue), parseInt(displayValue));
-  displayMain.innerText = displayValue;
+
+  if (firstValue != "" && displayValue != "") {
+    displayUpper.innerText = `${firstValue} ${operator} ${displayValue} =`;
+    displayValue = operate(operator, parseInt(firstValue), parseInt(displayValue));
+    displayMain.innerText = displayValue;
+  }
 
 });
 
@@ -80,4 +83,5 @@ clear.addEventListener("click", () => {
   secondValue = "";
   result = "";
   displayMain.innerText = "0";
+  displayUpper.innerText = "";
 });
