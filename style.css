@@ -45,9 +45,11 @@ body {
 button {
   border-style: solid;
   border-color: black;
+  width: 80px;
+  height: 70px;
 }
 
-.operand {
+/* .operand {
   width: 80px;
   height: 70px;
 }
@@ -55,7 +57,7 @@ button {
 .operator {
   width: 80px;
   height: 70px;
-}
+} */
 
 .row2 {
   display: flex;

@@ -24,7 +24,7 @@ function operate(operator, x, y) {
       return subtraction(x, y);
       break;
 
-    case "*":
+    case "x":
       return multiplication(x, y);
       break;
 
@@ -34,24 +34,48 @@ function operate(operator, x, y) {
   }
 }
 
+let displayValue = "";
 let firstValue = "";
-let secondValue = "";
 let result = "";
+let operator = "";
 let displayMain = document.querySelector(".displayMain");
 
 const operands = document.querySelectorAll(".operand");
 
 operands.forEach((button) => {
   button.addEventListener("click", () => {
-    firstValue += button.textContent;
-    displayMain.innerText = firstValue;
+    displayValue += button.textContent;
+    displayMain.innerText = displayValue;
   });
 });
+
+const operators = document.querySelectorAll(".operator");
+
+operators.forEach((button) => {
+  button.addEventListener("click", () => {
+
+    if (displayValue != "") {
+      firstValue = displayValue;
+      displayValue = "";
+      operator = button.textContent;
+    }
+  })
+})
+
+const equals = document.getElementById("equalsBtn")
+
+equals.addEventListener("click", () => {
+  console.log(operator);
+  console.log(firstValue);
+  console.log(displayValue);
+  displayValue = operate(operator, parseInt(firstValue), parseInt(displayValue));
+  displayMain.innerText = displayValue;
+})
 
 const clear = document.getElementById("clearBtn");
 
 clear.addEventListener("click", () => {
-  firstValue = "";
+  displayValue = "";
   secondValue = "";
   result = "";
   displayMain.innerText = "0";
