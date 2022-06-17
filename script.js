@@ -11,7 +11,15 @@ function multiplication(x, y) {
 }
 
 function division(x, y) {
-  return x / y;
+  if (y === 0) {
+    displayValue = "";
+    firstValue = "";
+    result = "";
+    operator = "";
+    return "don't do it";
+  } else {
+    return x / y;
+  }
 }
 
 function operate(operator, x, y) {
@@ -36,8 +44,8 @@ function operate(operator, x, y) {
 
 let displayValue = "";
 let firstValue = "";
-let result = "";
 let operator = "";
+
 let displayMain = document.querySelector(".displayMain");
 let displayUpper = document.querySelector(".displayUpper");
 
@@ -47,6 +55,10 @@ operands.forEach((button) => {
   button.addEventListener("click", () => {
     displayValue += button.textContent;
     displayMain.innerText = displayValue;
+
+    if (displayUpper.textContent.includes("=")) {
+      displayUpper.innerText = "";
+    }
   });
 });
 
@@ -54,34 +66,78 @@ const operators = document.querySelectorAll(".operator");
 
 operators.forEach((button) => {
   button.addEventListener("click", () => {
-
-    if (displayValue != "") {
+    if (displayValue != "" && displayValue != "0" && operator === "") {
+      firstValue = displayValue;
+      displayValue = "";
+      operator = button.textContent;
+      displayUpper.innerText = `${firstValue} ${operator}`;
+    } else if (displayValue != "" && displayValue != "0" && firstValue != "") {
+      displayUpper.innerText = `${firstValue} ${operator} ${displayValue} =`;
+      displayValue = operate(
+        operator,
+        parseFloat(firstValue),
+        parseFloat(displayValue)
+      );
+      displayMain.innerText = displayValue;
       firstValue = displayValue;
       displayValue = "";
       operator = button.textContent;
       displayUpper.innerText = `${firstValue} ${operator}`;
     }
-  })
-})
+  });
+});
 
-const equals = document.getElementById("equalsBtn")
+const equals = document.getElementById("equalsBtn");
 
 equals.addEventListener("click", () => {
-
   if (firstValue != "" && displayValue != "") {
     displayUpper.innerText = `${firstValue} ${operator} ${displayValue} =`;
-    displayValue = operate(operator, parseInt(firstValue), parseInt(displayValue));
+    displayValue = operate(
+      operator,
+      parseFloat(firstValue),
+      parseFloat(displayValue)
+    );
     displayMain.innerText = displayValue;
+    displayValue = "";
+    firstValue = "";
+    operator = "";
   }
-
 });
 
 const clear = document.getElementById("clearBtn");
 
 clear.addEventListener("click", () => {
   displayValue = "";
-  secondValue = "";
-  result = "";
+  firstValue = "";
+  operator = "";
   displayMain.innerText = "0";
   displayUpper.innerText = "";
+});
+
+const decimal = document.getElementById("decimalBtn");
+
+decimal.addEventListener("click", () => {
+  if (
+    !displayMain.textContent.includes(".") &&
+    !(displayMain.innerText === "0")
+  ) {
+    displayValue += decimal.textContent;
+    displayMain.innerText = displayValue;
+  }
+});
+
+const zero = document.getElementById("zeroBtn");
+
+zero.addEventListener("click", () => {
+  if (!(displayMain.innerText === "0")) {
+    displayValue += zero.textContent;
+    displayMain.innerText = displayValue;
+  }
+});
+
+const deleteBtn = document.getElementById("deleteBtn");
+
+deleteBtn.addEventListener("click", () => {
+  if (!(displayMain.innerText === "0")) {
+  }
 });
