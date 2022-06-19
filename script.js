@@ -139,5 +139,11 @@ const deleteBtn = document.getElementById("deleteBtn");
 
 deleteBtn.addEventListener("click", () => {
   if (!(displayMain.innerText === "0")) {
+    displayValue = displayValue.slice(0,-1);
+    displayMain.innerText = displayValue;
+    console.log(displayValue.length);
+    if (displayValue.length === 0) {
+      displayMain.innerText = "0";
+    }
   }
 });
